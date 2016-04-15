@@ -1,0 +1,97 @@
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+
+  z-index: 2000;
+  position: fixed;
+  margin: auto;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 200%;
+  overflow: hidden;
+  background: #212121;
+}
+
+
+
+.pace .pace-progress {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
+  display: block;
+  position: fixed;
+  right: 100%;
+  margin-right: 0px;
+  width: 100%;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  font-size: 17px;
+  background: #ffc107;
+  color: #ffffff;
+  line-height: 60px;
+  font-weight: normal;
+  font-family: Helvetica, Arial, sans-serif;
+
+}
+
+body.red .pace .pace-progress{
+  background-color: #f44336;
+}
+body.green .pace .pace-progress{
+  background-color: #00c853;
+}
+body.blue .pace .pace-progress{
+  background-color: #29b6f6;
+}
+body.orange .pace .pace-progress{
+  background-color: #ff6630;
+}
+
+
+
+.pace .pace-progress:after {
+  display: none;
+  content: attr(data-progress-text);
+  display: inline-block;
+  position: fixed;
+  width: auto;
+  text-align: left;
+  right: 0;
+  padding-right: 0px;
+  top: 4px;
+}
+
+.pace .pace-activity {
+}
+
+.pace.pace-inactive {
+  display: none;
+}

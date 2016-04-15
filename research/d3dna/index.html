@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<h1><center>X Chromosomal Similarity of Human vs. Primates - D3.js by Colby Ford</center></h1>
+<h3>Two different visualizations are used to see different parts of the information. The bar chart shows the percentage of X chromosomal DNA that humans share with other primates. The matrix shows the presence or absence of an amino acid DNA segments by showing a square if present (and shared by both human and that primate) and nothing if the DNA segment absent in the primate.You may download the original genomic data at <a href="http://www.ensembl.org/Homo_sapiens/Info/Index"> Ensembl.org/Homo_sapiens.</a></h3>
+<!-- styling was designed by me (Colby Ford) but within the bounds of
+the attributes necessary for the visualizations. -->
+<style>
+
+body {
+  font: 16px Century Gothic;
+  background-color: #75ad3e;
+    background-image: url("pattern.png");
+    background-repeat: repeat;
+    background-position: right top;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: teal;
+}
+
+.bar:hover {
+  fill: purple ;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(49, 6, 64, 0.6);
+  color: #fff;
+  border-radius: 2px;
+}
+
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(49, 6, 64, 0.6);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+table {
+  border-collapse: collapse;
+  font: 16px Century Gothic;
+  width: 1400px;
+}
+
+
+th {
+  font-weight: normal;
+  text-align: left;
+  padding-right: 1px;
+  min-width: 30px;
+}
+
+thead td {
+  cursor: s-resize;
+}
+
+tbody tr:first-child td {
+  padding-top: 2px;
+}
+
+tbody td {
+  padding: 0;
+  border-left: solid 1px #000;
+}
+
+tbody rect {
+  fill: teal;
+}
+
+tbody tr:hover rect {
+  fill: purple;
+}
+
+</style>
+
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script> src="http://code.jquery.com/jquery-2.1.0.min.js"</script>
+
+<div>
+    <!-- The main code for the bar chart was attained from:
+    http://bl.ocks.org/mbostock/3310560 but was edited to 
+    change the style of the page, size, color, and font of 
+    the visualization, to add hover functionality (like changing 
+    color and the tooltips). Also, the data attachment 
+    was changed as well. -->
+<script>
+
+var margin = {top: 40, right: 20, bottom: 30, left: 100},
+    width = 1400 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var formatPercent = d3.format(".0%");
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(formatPercent);
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Similarity to Human DNA:</strong> <span style='color:orange'>" + d.similarity + "</span>";
+  })
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.call(tip);
+
+d3.tsv("data.tsv", type, function(error, data) {
+  x.domain(data.map(function(d) { return d.primate; }));
+  y.domain([0, d3.max(data, function(d) { return d.similarity; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 3)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Similarity");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.primate); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.similarity); })
+      .attr("height", function(d) { return height - y(d.similarity); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
+
+});
+
+function type(d) {
+  d.similarity = +d.similarity;
+  return d;
+}
+
+</script>
+</div>
+
+<div>
+<nav>
+<table>
+  <thead>
+    <tr>
+      <th><b>Human DNA Segment</b></th>
+      <td><b>Chimpanzee</b></td>
+      <td><b>Gorilla</b></td>
+      <td><b>Orangutan</b></td>
+      <td><b>Vervet</b></td>
+      <td><b>Macaque</b></td>
+      <td><b>Baboon</b></td>
+      <td><b>Marmoset</b></td>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</nav>
+</div>"
+
+<div>
+<!-- The main code for the matrix was attained from:
+http://bl.ocks.org/mbostock/3719724 but was edited to not reflect
+bar size changes based on numerical value but on presence of a 
+value. Color, size, and data attachment were also changed. -->
+    
+<script>
+d3.csv("dnatable.csv", function(states) {
+  var ages = d3.keys(states[0]).filter(function(key) {
+    return key != "State" && key != "Total";
+  });
+
+  d3.selectAll("thead td").data(ages).on("click", function(k) {
+    tr.sort(function(a, b) { return (b[k] / 1) - (a[k] / 1); });
+  });
+
+  var tr = d3.select("tbody").selectAll("tr")
+      .data(states)
+    .enter().append("tr");
+
+  tr.append("th")
+      .text(function(d) { return d.State; });
+
+  tr.selectAll("td")
+      .data(function(d) { return ages.map(function(k) { return d[k] / 1; }); })
+    .enter().append("td").append("svg")
+      .attr("width", 30)
+      .attr("height", 30)
+    .append("rect")
+      .attr("height", 30)
+      .attr("width", function(d) { return d * 30; });
+});
+
+</script>
+</div>
+
+</body>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project ACCrobat</title>
+        <meta charset="utf-8"/>
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="js/pace.min.js"></script>
+        <link href="css/pace-loading-bar.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/animate.caliber.css">
+        <link rel="stylesheet" type="text/css" href="css/materialdesignicons.caliber.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="js/inviewport-1.3.2.js"></script>
+        <!--Mixitup -->
+        <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+        <!--Fancybox -->
+        <script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen" />
+        <!-- Main Style -->
+        <link rel="stylesheet" id="main-style" type="text/css" href="css/style.blue.css">
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body class="horizontal yellow">
+        <!-- Section Start - Header -->
+        <section class="header bg-lightgray header-1" >
+            <!-- Menu Top Bar - Start -->
+            <div class="topbar " data-effect="fadeIn">
+                <div class="menu">
+                    <div class="primary inviewport animated delay4" data-effect="fadeInRightBig">
+                        <div class='cssmenu'>
+                            <!-- Menu - Start -->
+                            <ul class='menu-ul'>
+                            	<li>
+                                <a href='http://colbytylerford.pythonanywhere.com'>Get Started!</a>
+                                </li>
+                                <li>
+                       			<a href='#about'>About</a>
+                        		</li>
+                        		<li>
+                       			<a href='#howto'>How To</a>
+                        		</li>
+                        		<li>
+                       			<a href='https://tcga-data.nci.nih.gov/tcga/tcgaDownload.jsp'>TCGA Database</a>
+                        		</li>
+                        </ul>
+                        <!-- Menu - End -->
+                    </div>
+                </div>
+                <div class="black inviewport animated delay4" data-effect="fadeInLeftBig">
+                    <div class='cssmenu'>
+                        <!-- Menu - Start -->
+                        <ul class='menu-ul'><li>
+                            <a href='https://github.com/colbytylerford/projectaccrobat'>GitHub</a>
+                        </li>
+                        <li class='has-sub'>
+                            <a href='#'>Creators <i class='mdi mdi-chevron-down'></i></a>
+                            <ul>
+                                <li>
+                                    <a href='http://www.colbyford.com'>Colby Ford</a>
+                                </li>
+                                <li>
+                                    <a href='https://www.linkedin.com/in/mitch-nodzak-144330a4'>Conor Nodzak</a>
+                                </li>
+                                <li>
+                                    <a href=''>Lei Zhao</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class='has-sub'>
+                            <a href='#'>Resources <i class='mdi mdi-chevron-down'></i></a>
+                            <ul>
+                                <li>
+                                    <a href='http://snpeff.sourceforge.net/'>SnpEff</a>
+                                </li>
+                                <li>
+                                    <a href='https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+%28MAF%29+Specification'>.MAF Files</a>
+                                </li>
+                                <li>
+                                	<a href='https://wiki.nci.nih.gov/display/TCGA/TCGA+Variant+Call+Format+%28VCF%29+Specification'>.VCF Files</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                        <a href='http://bioinformatics.uncc.edu'>UNCC</a>
+                        </li>
+
+                    </ul>
+                    <!-- Menu - End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Menu Top Bar - End -->
+    <!-- Logo and Mobile Menu - Start -->
+    <div class='header-logo-wrap'>
+        <div class="container">
+            <div class="logo col-xs-2">
+                <span>ACCrobat</span>
+            </div>
+            <div class="menu-mobile col-xs-10 pull-right cssmenu">
+                <i class="mdi mdi-menu menu-toggle"></i>
+                <ul class="menu" id='parallax-mobile-menu'>
+                </ul>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <img src="img/chrlogo_200px.png" align="middle">
+            </div>
+        </div>
+    </div>
+    <!-- Logo and Mobile Menu - End -->
+    <!-- Header Slide - Start -->
+    <div class="header-slide" style="position:relative;">
+        <img alt="header-banner-image" src="img/header.png" class='header-img' style=''>
+        <div class="overlay overlay1">
+            <div class="black inviewport animated delay4" data-effect="fadeInLeftOpacity"></div>
+            <div class="primary inviewport animated delay4" data-effect="fadeInRightOpacity"></div>
+            <!-- Header Text - Start -->
+            <div class="maintext">
+                <div class="primary-text inviewport animated delay4" data-effect="fadeInRightBig">
+                    <div class="left-line">
+                        <h4>Welcome to</h4>
+                        <h1>Project</h1>
+                        
+                    </div>
+                </div>
+                <div class="black-text inviewport animated delay4" data-effect="fadeInLeftBig">
+                    <div>
+                        <h1>ACCrobat</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Text - End -->
+        </div>
+    </div>
+    <!-- Header Slide - End -->
+</section>
+<!-- Section End - Header -->
+<!-- Section Start - Why Choose Us -->
+<section ><div class="container">
+    <div class="row">
+        <h1 id="about" class="heading">What is ACCrobat?</h1>
+        <div class="headul"></div>
+        <p class="subheading">ACCrobat is a tool that takes .MAF file uploads from <a href="https://tcga-data.nci.nih.gov/tcga/tcgaDownload.jsp">The Cancer Genome Atlas'</a> database of tumor data. It parses, transforms, and analyzes the data and then posts it for easy access.</p>
+        <div class="features">
+            <!-- Feature - Start -->
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 feature inviewport animated delay1" data-effect="fadeInUp">
+                <div class="icon">
+                    <i class="mdi mdi-desktop-mac"></i>
+                </div>
+                <div class="info">
+                    <h3 class="title">Design</h3>
+                    <p>Built on <a href="http://www.python.org">Python</a> and <a href="http://www.djangoproject.com">Django</a>, this app uses internal scripts to do the heavy lifting for you.</p>
+                </div>
+            </div>
+            <!-- Feature - End -->
+            <!-- Feature - Start -->
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 feature inviewport animated delay2" data-effect="fadeInUp">
+                <div class="icon">
+                    <i class="mdi mdi-server-network"></i>
+                </div>
+                <div class="info">
+                    <h3 class="title">Web Hosted</h3>
+                    <p>Designed for easy access for everyone, we host ACCrobat on <a href="http://www.pythonanywhere.com">Python Anywhere</a> for fast, web-based analysis.</p>
+                </div>
+            </div>
+            <!-- Feature - End -->
+           <!-- Feature - Start -->
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 feature inviewport animated delay2" data-effect="fadeInUp">
+                <div class="icon">
+                    <i class="mdi mdi-chart-areaspline"></i>
+                </div>
+                <div class="info">
+                    <h3 class="title">Development</h3>
+                    <p>Using <a href="http://snpeff.sourceforge.net/">SnpEff</a> to annotate and analyze, the tumor data is quickly summarized and graphed.</p>
+                </div>
+            </div>
+            <!-- Feature - End -->
+        </div>
+    </div>
+</div></section>
+<!-- Section End - Why Choose Us -->
+<!-- Section Start - Blogs -->
+<section ><div class="container">
+    <div class="row">
+        <h1 id="howto" class="heading">How Do I Do This?</h1>
+        <div class="headul"></div>
+        <p class="subheading">When designing ACCrobat, the goal was to make tumor data analysis easy and fast.</p>
+        <!-- Blog - Start -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 blog blog_small blog_left">
+            <div class="row">
+                <!-- Blog Image - Start -->
+                <div class=" col-lg-4 col-md-4 col-sm-5 col-xs-5  pic inviewport animated delay1" data-effect="fadeIn">
+                    <img src="img/nih_tcga_logo.svg" width = "300px">
+                </div>
+                <!-- Blog Image - End -->
+                <!-- Blog Info - Start -->
+                <div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 inviewport animated delay1" data-effect="fadeIn">
+                    <div class="info">
+                        <span class="date">Step 1:</span>
+                        <h4 class="title"><a href="blog-single.html">Get Your Data.</a></h4>
+        				<p>Navigate to <a href="https://tcga-data.nci.nih.gov/tcga/tcgaDownload.jsp"> The Cancer Genome Atlas Data Portal</a> and grab some tumor data.</p>
+        				<p>The data you download must be in the .MAF format.</p>
+                    </div>
+                </div>
+                <!-- Blog Info - End -->
+            </div>
+        </div>
+        <!-- Blog - End -->
+        <!-- Blog - Start -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 blog blog_small blog_right">
+            <div class="row">
+                <!-- Blog Image - Start -->
+                <div class=" col-lg-4 col-md-4 col-sm-5 col-xs-5  pic inviewport animated delay1" data-effect="fadeIn">
+                    <img src="img/newan.png" width = "300px">
+                </div>
+                <!-- Blog Image - End -->
+                <!-- Blog Info - Start -->
+                <div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 inviewport animated delay1" data-effect="fadeIn">
+                    <div class="info">
+                        <span class="date">Step 2:</span>
+                        <h4 class="title"><a href="blog-single.html">Run The Analysis.</a></h4>
+   						<p>Click <a href="http://colbytylerford.pythonanywhere.com"> Get Started</a> and then <strong>+ New Analysis</strong> once you login.</p>
+    					<p>Upload the data you previously downloaded, Add your title and description, then click <strong>Analyze</strong>.</p>
+                    </div>
+                </div>
+                <!-- Blog Info - End -->
+            </div>
+        </div>
+        <!-- Blog - End -->
+        <!-- Blog - Start -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 blog blog_small blog_left">
+            <div class="row">
+                <!-- Blog Image - Start -->
+                <div class=" col-lg-4 col-md-4 col-sm-5 col-xs-5  pic inviewport animated delay1" data-effect="fadeIn">
+                    <img src="img/files.png" width = "300px">
+                </div>
+                <!-- Blog Image - End -->
+                <!-- Blog Info - Start -->
+                <div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 inviewport animated delay1" data-effect="fadeIn">
+                    <div class="info">
+                        <span class="date">Step 3:</span>
+                        <h4 class="title"><a href="blog-single.html">See Your Results.</a></h4>
+   						<p>The page will redirect you to the results of your analysis.</p>
+    					<p>You'll be able to see your original file, the transformed .VCF file, the annotated .VCF, and the output graphs as well.
+                    </div>
+                </div>
+                <!-- Blog Info - End -->
+            </div>
+        </div>
+        <!-- Blog - End -->
+    </div>
+</div></section>
+<!-- Section End - Blogs -->
+<!-- Section Start - Footer -->
+<section class='footer bg-black padding-bottom-50 '><div class="container">
+</div>
+<!-- Copyright Bar - Start -->
+<div class="copyright">
+    <div class="col-md-12">
+        <div class="container">
+            <div class="">
+                <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 message inviewport animated delay1" data-effect="fadeInUp">
+                    <span class="">&copy; 2016 - C. Ford, C. Nodzak, L. Zhao</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 social">
+                    <a href="http://bioinformatics.uncc.edu" class="inviewport animated delay1" data-effect="fadeInUp">Bioinformatics@UNCC</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright Bar - End -->
+</section>
+<!-- Section End - Footer -->
+</body>
+</html>

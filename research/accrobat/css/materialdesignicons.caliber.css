@@ -1,0 +1,106 @@
+/* MaterialDesignIcons.com */
+@font-face {
+  font-family: 'MaterialDesignIcons';
+  src:url('../fonts/MaterialDesignIcons.caliber.eot?490x1g');
+  src:url('../fonts/MaterialDesignIcons.caliber.eot?#iefix490x1g') format('embedded-opentype'),
+    url('../fonts/MaterialDesignIcons.caliber.ttf?490x1g') format('truetype'),
+    url('../fonts/MaterialDesignIcons.caliber.woff?490x1g') format('woff'),
+    url('../fonts/MaterialDesignIcons.caliber.svg?490x1g#MaterialDesignIcons') format('svg');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+.mdi {
+  display: inline-block;
+  font: normal normal normal 24px/1 MaterialDesignIcons;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+  speak: none;
+  text-transform: none;
+}
+
+.mdi-arrow-right:before {
+  content: "\f144";
+}
+.mdi-camera:before {
+  content: "\f1d1";
+}
+.mdi-cart:before {
+  content: "\f1da";
+}
+.mdi-cart-outline:before {
+  content: "\f1db";
+}
+.mdi-chart-areaspline:before {
+  content: "\f1ec";
+}
+.mdi-check:before {
+  content: "\f1f1";
+}
+.mdi-chevron-down:before {
+  content: "\f204";
+}
+.mdi-chevron-left:before {
+  content: "\f205";
+}
+.mdi-chevron-right:before {
+  content: "\f206";
+}
+.mdi-chevron-up:before {
+  content: "\f207";
+}
+.mdi-close:before {
+  content: "\f216";
+}
+.mdi-desktop-mac:before {
+  content: "\f26b";
+}
+.mdi-dribbble:before {
+  content: "\f286";
+}
+.mdi-facebook:before {
+  content: "\f2aa";
+}
+.mdi-format-paint:before {
+  content: "\f309";
+}
+.mdi-google-plus:before {
+  content: "\f339";
+}
+.mdi-image-area:before {
+  content: "\f362";
+}
+.mdi-laptop-mac:before {
+  content: "\f390";
+}
+.mdi-magnify:before {
+  content: "\f3ab";
+}
+.mdi-menu:before {
+  content: "\f3bc";
+}
+.mdi-server-network:before {
+  content: "\f4a8";
+}
+.mdi-settings:before {
+  content: "\f4ae";
+}
+.mdi-star:before {
+  content: "\f4d4";
+}
+.mdi-twitter:before {
+  content: "\f535";
+}
+.mdi-vector-curve:before {
+  content: "\f540";
+}
+.mdi-video:before {
+  content: "\f545";
+}
+.mdi-youtube-play:before {
+  content: "\f591";
+}

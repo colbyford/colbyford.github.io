@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<!--<html lang="en" class="no-js">-->
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
@@ -34,9 +35,9 @@
 				<li><a href="http://www.amnh.org/our-research/computational-sciences">AMNH - Computational Sciences</a></li>
 				<li><a class="codrops-icon" href="http://www.colbyford.com"><span>ColbyFord.com</span></a></li>
 			</ul>
-			<header>
+			<!--<header>-->
 				<h1>Bantu Language Clusters</h1>
-			</header>
+			<!--</header>-->
 		</div><!-- /container -->
 		<script src="js/classie.js"></script>
 		<script src="js/gnmenu.js"></script>
@@ -376,7 +377,7 @@ var oh = window.outerHeight;
 var layout = {
   autosize: true, 
   barmode: "group", 
-  height: 0.80 * h, 
+  height: 0.90 * h, 
   legend: {
     x: 1, 
     y: 0, 
@@ -413,7 +414,7 @@ var layout = {
         z: 0.816496580928
       }
     }, 
-    dragmode: "pan", 
+    dragmode: "orbit", 
     xaxis: {
       autorange: true, 
       rangemode: "normal", 
@@ -434,7 +435,7 @@ var layout = {
     }
   }, 
   title: "Bantu Language Clusters", 
-  width: 0.80 * w
+  width: 0.90 * w
 };
 
 Plotly.plot('plotly-div', data, layout);

@@ -225,7 +225,7 @@ img.svg{
 	height: auto;
 	clear: both;
 	float: left;
-	background-color: rgba(25,38,65,.95);
+	background-color: rgba(233,85,35,.95);
 	padding: 50px 20px;
 	display: none;
 	border-bottom: 1px solid rgba(255,255,255,.09);
@@ -1264,7 +1264,7 @@ img.svg{
 	right: 0px;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: 50%;
 }
 #edina_tm_popup_blog .date_wrap{
 	margin-bottom: 16px;
@@ -1720,7 +1720,7 @@ img.svg{
 	.edina_tm_trigger{display: block;}
 	.edina_tm_navigation_wrap .nav_list_wrap{display: none;}
 	.edina_tm_navigation_wrap .logo{position: relative;top:-1px;}
-	.edina_tm_navigation_wrap{padding: 30px 0px;background-color: rgba(0,0,0,.95);}
+	.edina_tm_navigation_wrap{padding: 30px 0px;background-color: rgba(233,85,35,.95);}
 	.edina_tm_list_wrap[data-column="4"] ul.total > li{width: 33.3333%;}
 	.edina_tm_list_wrap[data-column="5"] ul.total > li{width: 33.3333%;}
 	.edina_tm_about_wrap .rightbox{padding: 0px 50px 0px 0px;}

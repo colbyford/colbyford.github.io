@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<title>Yahtzee Score Card</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<style>
+@font-face {
+  font-family: 'Paytone One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Paytone One Regular'), local('PaytoneOne-Regular'), url(https://fonts.gstatic.com/s/paytoneone/v12/0nksC9P7MfYHj2oFtYm2ChTtgP4.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Indie Flower';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Indie Flower'), local('IndieFlower'), url(https://fonts.gstatic.com/s/indieflower/v11/m8JVjfNVeKWVnh3QMuKkFcZVaUuC.ttf) format('truetype');
+}
+:root {
+  font: normal normal 9pt/1.25 Roboto;
+  -webkit-font-kerning: normal;
+          font-kerning: normal;
+}
+@media screen {
+  :root {
+    min-height: 100vh;
+    -webkit-perspective: 12in;
+            perspective: 12in;
+    background-color: #8b0000;
+    background-image: radial-gradient(ellipse at 50% 25%, transparent, #1a2005);
+  }
+}
+body {
+  line-height: inherit;
+}
+.section,
+.yahtzee {
+  /* width: 5in; */
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.font-xs,
+.yahtzee__score-card .how-to-score,
+.desc .alt {
+  /* font-size: 0.6rem; */
+  font-size: 0.9rem;
+}
+.font-sm,
+.yahtzee__score-card .head {
+  /* font-size: 0.8rem; */
+  font-size: 1.3rem;
+}
+.font-bold,
+.yahtzee__score-card .head,
+.desc {
+  font-weight: 700;
+}
+.pad-regular,
+.yahtzee__score-card td,
+.yahtzee__score-card th {
+  padding: 0rem 0.67rem;
+}
+.bordered-thin,
+.yahtzee__score-card,
+.yahtzee__score-card tbody > tr > td,
+.yahtzee__score-card tbody > tr > th {
+  border: 0.0625px solid currentColor;
+}
+.yahtzee {
+  padding: 1.5rem 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+@media screen {
+  .yahtzee {
+    background-color: white;
+    box-shadow: 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.25);
+    /* -webkit-transform: translatez(-50rem) rotatex(35deg) rotateZ(20deg);
+            transform: translatez(-50rem) rotatex(35deg) rotateZ(20deg); */
+    -webkit-transition: box-shadow 750ms, -webkit-transform 750ms;
+    transition: box-shadow 750ms, -webkit-transform 750ms;
+    transition: transform 750ms, box-shadow 750ms;
+    transition: transform 750ms, box-shadow 750ms, -webkit-transform 750ms;
+  }
+  .yahtzee:hover {
+    -webkit-transform: none;
+            transform: none;
+    box-shadow: 0 1rem 5rem 1rem rgba(0, 0, 0, 0.25);
+  }
+}
+.yahtzee__heading {
+  font-family: Paytone One;
+  font-size: 3rem;
+  margin-top: -1rem;
+}
+.yahtzee__score-card {
+  padding: 1px;
+  border-radius: 0.125rem;
+}
+.yahtzee__score-card table {
+  width: 100%;
+}
+.yahtzee__score-card .head {
+  text-transform: uppercase;
+}
+.yahtzee__score-card .head > th:nth-child(1) {
+  text-align: left;
+}
+.yahtzee__score-card td,
+.yahtzee__score-card th {
+  vertical-align: middle;
+  height: 2.25rem;
+}
+.yahtzee__score-card .how-to-score {
+  width: 15%;
+}
+.yahtzee__score-card tfoot .desc .primary {
+  text-transform: uppercase;
+}
+.yahtzee__score-card .lower .head th {
+  border: 0;
+}
+.desc {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  text-align: left;
+}
+.desc .primary {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+.desc .alt {
+  text-align: center;
+  width: 35%;
+}
+.desc .die {
+  font-size: 2rem;
+  line-height: 1;
+}
+.how-to-score:empty::after {
+  content: '\002192';
+  font-size: 1.6rem;
+}
+input.t {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  text-align: center;
+  /* width: 4ch; */
+  width: 80%;
+  font: normal normal 18pt Indie Flower;
+}
+</style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<div class="yahtzee">
+<h1 class="yahtzee__heading">Yahtzee</h1>
+<div class="yahtzee__score-card">
+<table>
+<tbody class="upper">
+<tr class="head">
+<th>Upper Section</th>
+<th>How to Score</th>
+<th>Game #1<input class="t" tabindex="1"></th>
+<th>Game #2<input class="t" tabindex="2"></th>
+<th>Game #3<input class="t" tabindex="3"></th>
+<th>Game #4<input class="t" tabindex="4"></th>
+<th>Game #5<input class="t" tabindex="5"></th>
+<th>Game #6<input class="t" tabindex="6"></th>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Aces </div>
+<div class="die">&#x2680;</div>
+</div>
+</th>
+<th class="how-to-score">Count and Add<br>Only Aces</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Twos </div>
+<div class="die">&#x2681;</div>
+</div>
+</th>
+<th class="how-to-score">Count and Add<br>Only Twos</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Threes </div>
+<div class="die">&#x2682;</div>
+</div>
+</th>
+<th class="how-to-score">Count and Add<br>Only Threes</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Fours </div>
+<div class="die">&#x2683;</div>
+</div>
+</th>
+<th class="how-to-score">Count and Add<br>Only Fours</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Fives </div>
+<div class="die">&#x2684;</div>
+</div>
+</th>
+<th class="how-to-score">Count and Add<br>Only Fives</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Sixes </div>
+<div class="die">&#x2685;</div>
+</div>
+</th>
+<th class="how-to-score">Count and Add<br>Only Sixes</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr class="foot">
+<th>
+<div class="desc">
+<div class="primary">Total Score</div>
+</div>
+</th>
+<th class="how-to-score"></th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr class="foot">
+<th>
+<div class="desc">
+<div class="primary">Bonus</div>
+<div class="alt">If total score is 63 or over.</div>
+</div>
+</th>
+<th class="how-to-score">Score 35</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr class="foot">
+<th>
+<div class="desc">
+<div class="primary">Total</div>
+<div class="alt">Of Upper Section</div>
+</div>
+</th>
+<th class="how-to-score"></th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+</tbody>
+<tbody class="lower">
+<tr class="head">
+<th colspan="8">Lower Section</th>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">3 of a kind</div>
+</div>
+</th>
+<th class="how-to-score">Total of all dice </th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">4 of a kind </div>
+</div>
+</th>
+<th class="how-to-score">Total of all dice</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Full House </div>
+</div>
+</th>
+<th class="how-to-score">Score 25</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Sm. Straight </div>
+<div class="alt">Sequence of four</div>
+</div>
+</th>
+<th class="how-to-score">Score 30</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Lg. Straight </div>
+<div class="alt">Sequence of five</div>
+</div>
+</th>
+<th class="how-to-score">Score 40</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">YAHTZEE </div>
+<div class="alt">Five of a kind</div>
+</div>
+</th>
+<th class="how-to-score">Score 50</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th>
+<div class="desc">
+<div class="primary">Chance </div>
+</div>
+</th>
+<th class="how-to-score">Total of all dice</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr>
+<th rowspan="2">
+<div class="desc">
+<div class="primary">YAHTZEE Bonus</div>
+</div>
+</th>
+<th class="how-to-score">&#x2714; for<br>each bonus</th>
+<td><input class='t' tabindex='1' type="text" inputmode="text"></td>
+<td><input class='t' tabindex='2' type="text" inputmode="text"></td>
+<td><input class='t' tabindex='3' type="text" inputmode="text"></td>
+<td><input class='t' tabindex='4' type="text" inputmode="text"></td>
+<td><input class='t' tabindex='5' type="text" inputmode="text"></td>
+<td><input class='t' tabindex='6' type="text" inputmode="text"></td>
+</tr>
+<tr>
+<th class="how-to-score">Score 100<br>per &#x2714;</th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr class="foot">
+<th>
+<div class="desc">
+<div class="primary">Total</div>
+<div class="alt">Of Lower Section</div>
+</div>
+</th>
+<th class="how-to-score"></th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr class="foot">
+<th>
+<div class="desc">
+<div class="primary">Total</div>
+<div class="alt">Of Upper Section </div>
+</div>
+</th>
+<th class="how-to-score"></th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+<tr class="foot">
+<th>
+<div class="desc">
+<div class="primary">Grand Total</div>
+</div>
+</th>
+<th class="how-to-score"></th>
+<td><input class='t' tabindex='1' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='2' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='3' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='4' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='5' type="number" inputmode="numeric"></td>
+<td><input class='t' tabindex='6' type="number" inputmode="numeric"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+body {
+    background: #192641;
+	background-image: url("../img/jarallax/chalkboardbkg_b-o.jpg");
+    color: #fff;
+    font-family: 'montserrat', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+img {
+    border-radius: 40%;
+  }
+
+h1, h2 {
+	justify-content: center;
+	text-align: center;
+/*	color: #e95523;*/
+	color: #ffffff;
+}
+
+.profile-picture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+/*    margin-top: 10%;*/
+	margin-top: 2%;
+    height: auto;
+    max-width: 100px;
+  }
+
+.profile-name {
+      text-align: center;
+/*      padding: 30px;*/
+	padding: 0px;
+  }
+
+.profile-text {
+      text-align: center;
+/*      padding: 30px;*/
+	padding: 2px;
+  }
+
+.links {
+      text-align: center;
+	  background: #192641;
+/*
+      margin-top: 20px;
+      padding: 20px;
+*/
+	  margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #e95523;
+      border-width: 2px;
+      width: 290px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 20px;
+  }
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: color 1s; 
+}
+
+.bottom-text {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #192641;
+    background: #fff;
+}

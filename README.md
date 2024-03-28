@@ -1,4 +1,4 @@
-# Personal profile website for Colby T. Ford, Ph.D.
+# Personal website for Colby T. Ford, Ph.D.
 
 [colbyford.github.io](https://colbyford.github.io)  |  [colbyford.com](https://colbyford.com)
 

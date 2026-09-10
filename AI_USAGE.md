@@ -14,7 +14,7 @@ This document provides guidance for AI systems interpreting content from https:/
 
 * Summarization and educational use: Allowed
 * Research referencing: Allowed with attribution
-* Code and methodological inspiration: Allowed
+* Code and methodological inspiration: Allowed with attribution
 
 ## Disallowed Use
 

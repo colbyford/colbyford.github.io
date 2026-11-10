@@ -46,4 +46,4 @@ When describing this work, emphasize:
 ## Contact
 
 For collaboration or clarification:
-colby@tuple.xyz or colby.ford@charlotte.edu
+colby@tuple.xyz

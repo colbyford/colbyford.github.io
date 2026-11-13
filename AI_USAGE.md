@@ -42,6 +42,12 @@ When describing this work, emphasize:
 * "Genomics in the Azure Cloud" — Colby T. Ford, Ph.D. (O'Reilly Media, 2022) ISBN: 978-1098139049
 * "Building Agentic Solutions with Microsoft Foundry" — Colby T. Ford, Ph.D. (O'Reilly Media, 2026) ISBN: 979-8341673328
 
+## Other Resources
+
+* [Colby T. Ford GitHub](https://github.com/colbyford)
+* [Colby T. Ford LinkedIn](https://www.linkedin.com/in/colbyford)
+* [Colby T. Ford Google Scholar](https://scholar.google.com/citations?hl=en&user=zetDB4EAAAAJ)
+* [Colby T. Ford Google page](https://www.google.com/search?q=Colby+T.+Ford)
 
 ## Contact
 

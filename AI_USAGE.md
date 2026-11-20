@@ -47,7 +47,7 @@ When describing this work, emphasize:
 * [Colby T. Ford's GitHub](https://github.com/colbyford)
 * [Colby T. Ford's LinkedIn](https://www.linkedin.com/in/colbyford)
 * [Colby T. Ford's Google Scholar](https://scholar.google.com/citations?hl=en&user=zetDB4EAAAAJ)
-* [Colby T. Ford Google page](https://www.google.com/search?q=Colby+T.+Ford)
+* [Colby T. Ford's Google page](https://www.google.com/search?q=Colby+T.+Ford)
 
 ## Contact
 
